@@ -27,20 +27,24 @@ https://www.cnblogs.com/5bug/p/8506085.html
 安装之前确保电脑任务管理器，已启用虚拟化（否则重启电脑进入bios界面修改参数配置，不同电脑不同快捷键，自行百度）
 
 ![image](https://github.com/17661977890/ELK_docker/blob/master/image/%E5%9B%BE%E7%89%871.png)
+
 （2）安装kitematic（运行容器的图形化界面）
 https://jingyan.baidu.com/article/fcb5aff768d8eeedaa4a71f8.html
-
+![image](https://github.com/17661977890/ELK_docker/blob/master/image/%E5%9B%BE%E7%89%872.png)
 
 
 （3）安装部署ELK：（一次性安装，快速）
 https://www.cnblogs.com/soar1688/p/6849183.html
 1.在power-shell界面执行命令：docker pull sebp/elk 拉取elk镜像  
 2.docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -e ES_MIN_MEM=128m  -e ES_MAX_MEM=1024m -it --name elk sebp/elk 将镜像运行为容器，由于我本机内存不符合安装要求，为了保证ELK能够正常运行，加了-e参数限制使用最小内存及最大内存 ----等待启动。。。
+
 3.在浏览器输入 localhost:5601  看kibana启动情况
+![image](https://github.com/17661977890/ELK_docker/blob/master/image/%E5%9B%BE%E7%89%873.png)
 
-命令使用：
-
-
+ 
+ 命令使用：
+ ![image](https://github.com/17661977890/ELK_docker/blob/master/image/%E5%9B%BE%E7%89%874.png)
+ ![image](https://github.com/17661977890/ELK_docker/blob/master/image/%E5%9B%BE%E7%89%875.png)
 Linux 和docker 常用命令：
 https://www.cnblogs.com/mq0036/p/8520605.html
 Docker常用命令（全）
@@ -66,6 +70,7 @@ Logstash与springboot整合得所需依赖以及相关配置：
 官网查看：
 https://github.com/logstash/logstash-logback-encoder
 logstash 控制台不能输出日志，就查看配置文件 logstash.conf是不是对的（按步骤操作）
+![image](https://github.com/17661977890/ELK_docker/blob/master/image/%E5%9B%BE%E7%89%876.png)
 
 之前input里面的  tcp  我用的是beats所以会报一个错：（因为不同的输入方式，beats需要用Filebeats,如果没有安装配置就会报此错）
 Caused by: org.logstash.beats.BeatsParser$InvalidFrameProtocolException: Invalid Frame Type, received: 64
@@ -73,6 +78,7 @@ at org.logstash.beats.BeatsParser.decode(BeatsParser.java:92) ~[logstash-input
 
 配置完后，logstash 控制台可以正常打印项目的日志了（json格式）
 
+![image](https://github.com/17661977890/ELK_docker/blob/master/image/%E5%9B%BE%E7%89%877.png)
 但是kibana还是不行，看不出来，之前的错误原因是，创建索引，没有按照logastash的配置来，
 input{
         tcp {
@@ -90,7 +96,9 @@ output{
 }
 
 在kibana中创建索引，要按照这个格式创建  user-*,然后去discover中就能看到我的项目打印的日志了。（要和logstash.conf配置文件对应）
-
+![image](https://github.com/17661977890/ELK_docker/blob/master/image/%E5%9B%BE%E7%89%878.png)
+![image](https://github.com/17661977890/ELK_docker/blob/master/image/%E5%9B%BE%E7%89%879.png)
+![image](https://github.com/17661977890/ELK_docker/blob/master/image/%E5%9B%BE%E7%89%880.png)
 
 
 
