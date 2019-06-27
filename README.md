@@ -26,7 +26,7 @@ https://blog.csdn.net/fanrenxiang/article/details/81358332
 https://www.cnblogs.com/5bug/p/8506085.html
 安装之前确保电脑任务管理器，已启用虚拟化（否则重启电脑进入bios界面修改参数配置，不同电脑不同快捷键，自行百度）
 
-
+![image](https://github.com/17661977890/ELK_docker/blob/master/image/%E5%9B%BE%E7%89%871.png)
 （2）安装kitematic（运行容器的图形化界面）
 https://jingyan.baidu.com/article/fcb5aff768d8eeedaa4a71f8.html
 
