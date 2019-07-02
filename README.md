@@ -60,19 +60,19 @@ https://www.cnblogs.com/yjd_hycf_space/p/7730690.html
 
 ** Logstash与springboot整合得所需依赖以及相关配置：
 
-< 依赖 >
-    < groupId > net.logstash.logback </ groupId >
-    < artifactId > logstash-logback-encoder </ artifactId >
-    < version > 6.0 </ version >
-</ dependency >
+<dependency>
+    <groupId> net.logstash.logback </groupId>
+    <artifactId> logstash-logback-encoder </artifactId>
+    <version> 6.0 </version>
+</dependency>
 
  <！ -您的项目还必须直接依赖于logback-classic或logback-access。例如：- > 
  
-< dependency >
-    < groupId > ch.qos.logback </ groupId >
-    < artifactId > logback-classic </ artifactId >
-    < version > 1.2.3 </ version >
-</ dependency >
+<dependency>
+    <groupId> ch.qos.logback </groupId>
+    <artifactId > logback-classic </artifactId>
+    <version> 1.2.3 </version>
+</dependency>
 
 ** 日志的配置文件logback-spring.xml
 
