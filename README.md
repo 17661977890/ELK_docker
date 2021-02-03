@@ -155,6 +155,7 @@ at org.logstash.beats.BeatsParser.decode(BeatsParser.java:92) ~[logstash-input
 ![image](https://github.com/17661977890/ELK_docker/blob/master/image/%E5%9B%BE%E7%89%877.png)
 但是kibana还是不行，看不出来，之前的错误原因是，创建索引，没有按照logastash的配置来，
 
+```
 input{
         tcp {
 
@@ -169,7 +170,7 @@ output{
                 }
         stdout{codec => rubydebug}
 }
-
+```
 在kibana中创建索引，要按照这个格式创建  user-*,然后去discover中就能看到我的项目打印的日志了。（要和logstash.conf配置文件对应）
 ![image](https://github.com/17661977890/ELK_docker/blob/master/image/%E5%9B%BE%E7%89%878.png)
 ![image](https://github.com/17661977890/ELK_docker/blob/master/image/%E5%9B%BE%E7%89%879.png)
